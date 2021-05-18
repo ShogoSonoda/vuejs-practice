@@ -1,5 +1,7 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: [:show, :new, :edit, :create, :update, :destroy]
+
 
   # GET /contents or /contents.json
   def index
